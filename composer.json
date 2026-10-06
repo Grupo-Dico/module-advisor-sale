@@ -1,0 +1,21 @@
+{
+  "name": "gdmexico/module-advisor-sale",
+  "description": "Venta de productos de Remate exclusivamente mediante asesor Tawk.to",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "require": {
+    "php": ">=7.4",
+    "magento/framework": "*",
+    "magento/module-catalog": "*",
+    "magento/module-quote": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "GDMexico\\AdvisorSale\\": ""
+    }
+  }
+}

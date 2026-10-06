@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Punto central: REST, GraphQL, storefront y endpoints custom que terminen en Quote::addProduct. -->
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="gdmexico_advisor_sale_block_quote_add_product"
+                type="GDMexico\AdvisorSale\Plugin\QuoteAddProductPlugin"
+                sortOrder="1"/>
+    </type>
+</config>

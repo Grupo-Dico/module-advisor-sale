@@ -1,0 +1,33 @@
+<?php
+/** @var \GDMexico\AdvisorSale\Block\AdvisorCta $block */
+if (!$block->shouldRender()) {
+    return;
+}
+
+$context = $block->getProductContext();
+$isSalable = $block->isSalable();
+?>
+<div class="gdmexico-advisor-sale" data-role="advisor-sale">
+    <?php if ($isSalable): ?>
+        <button type="button"
+                class="action primary advisor-sale-action"
+                data-role="advisor-sale-button">
+            <span><?= $block->escapeHtml(__('Comprar con un asesor')) ?></span>
+        </button>
+    <?php else: ?>
+        <div class="stock unavailable advisor-sale-unavailable">
+            <span><?= $block->escapeHtml(__('Agotado')) ?></span>
+        </div>
+    <?php endif; ?>
+</div>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "GDMexico_AdvisorSale/js/advisor-sale": {
+            "enabled": true,
+            "salable": <?= $isSalable ? 'true' : 'false' ?>,
+            "product": <?= /* @noEscape */ json_encode($context, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>
+        }
+    }
+}
+</script>
