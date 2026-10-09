@@ -49,26 +49,10 @@ define([], function () {
     }
 
     return function (config) {
-        var addToCartBox, addToCartButton, advisorButton;
+        var advisorButton;
         if (!config || !config.enabled) {
             return;
         }
-
-        // UI solamente. El bloqueo real está en Quote::addProduct.
-        addToCartButton = document.getElementById('product-addtocart-button');
-        if (addToCartButton) {
-            addToCartBox = addToCartButton.closest('.box-tocart');
-            if (addToCartBox) {
-                addToCartBox.style.display = 'none';
-            } else {
-                addToCartButton.style.display = 'none';
-            }
-        }
-
-        // También elimina accesos directos de Buy Now presentes en el PDP.
-        document.querySelectorAll('.buy-now, .buynow, [data-role="buy-now"], #buy-now').forEach(function (element) {
-            element.style.display = 'none';
-        });
 
         advisorButton = document.querySelector('[data-role="advisor-sale-button"]');
         if (advisorButton && config.salable) {

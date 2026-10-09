@@ -20,6 +20,7 @@ $isSalable = $block->isSalable();
         </div>
     <?php endif; ?>
 </div>
+<?php if ($isSalable): ?>
 <script type="text/x-magento-init">
 {
     "*": {
@@ -31,3 +32,4 @@ $isSalable = $block->isSalable();
     }
 }
 </script>
+<?php endif; ?>
